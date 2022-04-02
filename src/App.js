@@ -1,8 +1,12 @@
+import React from "react";
+import PromoCode from "./components/PromoCode";
+import "./app.css";
 function App() {
   return (
-    <div className="container">
-      <h1>Hii</h1>
-    </div>
+    <>
+      <h1>Header</h1>
+      <PromoCode />
+    </>
   );
 }
 
