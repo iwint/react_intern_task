@@ -1,10 +1,11 @@
 import React from "react";
 import "./app.css";
-import PromocodeForm from "./components/PromocodeForm";
+import PromocodeForm from "./components/Form/PromocodeForm";
+import NavbarSection from "./components/Navbar/Navbar";
 function App() {
   return (
     <>
-      <h1>Header</h1>
+      <NavbarSection />
       <PromocodeForm />
     </>
   );

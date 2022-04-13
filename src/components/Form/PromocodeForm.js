@@ -1,9 +1,12 @@
 import React from "react";
-import { Button, Col, Container, FormGroup, Label, Row } from "reactstrap";
-import Header from "./header";
+import { Col, Container, FormGroup, Label, Row } from "reactstrap";
 import * as Yup from "yup";
 import { Form, Formik } from "formik";
 import BootInputComponent from "./Input";
+import styled from "styled-components";
+import Header from "./header";
+
+const Button = styled.button``;
 
 function PromocodeForm() {
   const disType = [
@@ -56,11 +59,11 @@ function PromocodeForm() {
     expirydate: Yup.date().required(" * Required Field"),
     discounttype: Yup.string().required(" * Required Field"),
     discountpercentage: Yup.string().required("* Required Field"),
-    // discountmaximum: Yup.string().required("* Required Field"),
-    // maximumredemption: Yup.string().required("* Required Field"),
-    // location: Yup.string().required("* Required Field"),
-    // chooseservice: Yup.string().required("* Required Field"),
-    // discountvalue: Yup.string().required("* Required Field"),
+    discountmaximum: Yup.string().required("* Required Field"),
+    maximumredemption: Yup.string().required("* Required Field"),
+    location: Yup.string().required("* Required Field"),
+    chooseservice: Yup.string().required("* Required Field"),
+    discountvalue: Yup.string().required("* Required Field"),
   });
 
   const onSubmit = (values) => {
