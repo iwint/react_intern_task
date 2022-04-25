@@ -7,16 +7,27 @@ import {
   Input,
   InputGroup,
   InputGroupText,
+<<<<<<< HEAD
   Navbar,
+=======
+  Nav,
+  Navbar,
+  NavItem,
+>>>>>>> 92e8dd54ac197e15d9c7a8e20f2489e2444b9880
   Row,
 } from "reactstrap";
 import { BiBell } from "react-icons/bi";
 import { RiSearch2Line } from "react-icons/ri";
 import { FaAlignLeft } from "react-icons/fa";
 import { RiLightbulbFlashLine } from "react-icons/ri";
+<<<<<<< HEAD
 // import User from "./User";
+=======
+>>>>>>> 92e8dd54ac197e15d9c7a8e20f2489e2444b9880
 import { Link } from "react-router-dom";
+import Sidebar from "../SideBar/Sidebar";
 
+<<<<<<< HEAD
 function Topbar({ toggleSideBar, sideBar }) {
   return (
     <>
@@ -117,6 +128,28 @@ function Topbar({ toggleSideBar, sideBar }) {
         </Row>
       </Navbar>
       {/* </Container> */}
+=======
+function Topbar({ toggle, sideBar }) {
+  return (
+    <>
+      <Navbar
+        expand="md"
+        className="topbar p-3 px-0 mx-3 col-12"
+        style={{
+          height: "100px",
+          width: "100%",
+          position: "relative",
+          left: "0",
+          right: "0",
+        }}
+      >
+        <Nav>
+          <NavItem className="navItem">
+            <FaAlignLeft onClick={toggle} />
+          </NavItem>
+        </Nav>
+      </Navbar>
+>>>>>>> 92e8dd54ac197e15d9c7a8e20f2489e2444b9880
     </>
   );
 }
