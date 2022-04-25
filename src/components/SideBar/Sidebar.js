@@ -1,8 +1,8 @@
 import React from "react";
 import { Navbar, NavbarBrand } from "reactstrap";
 
-function Sidebar() {
-  return (
+function Sidebar({ sideBar }) {
+  return sideBar ? (
     <Navbar
       color="#ffffff"
       style={{
@@ -13,7 +13,7 @@ function Sidebar() {
     >
       Hello
     </Navbar>
-  );
+  ) : null;
 }
 
 export default Sidebar;

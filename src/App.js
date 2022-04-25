@@ -14,8 +14,10 @@ function App() {
   return (
     <>
       <Router>
-        <Sidebar toggle={toggleSideBar} sideBar={sideBar} />
-        <Topbar toggle={toggleSideBar} sideBar={sideBar} />
+        <div className="App-wrapper d-flex px-0">
+          <Sidebar toggleSideBar={toggleSideBar} sideBar={sideBar} />
+          <Topbar toggleSideBar={toggleSideBar} sideBar={sideBar} />
+        </div>
 
         <Routes>
           <Route path="/promocodes" exact component={PromocodeForm} />

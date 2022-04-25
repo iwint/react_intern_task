@@ -1,4 +1,5 @@
-import { React, useState } from "react";
+import React from "react";
+import { VscChevronDown } from "react-icons/vsc";
 
 import {
   Col,
@@ -6,20 +7,21 @@ import {
   Input,
   InputGroup,
   InputGroupText,
+  Navbar,
   Row,
 } from "reactstrap";
 import { BiBell } from "react-icons/bi";
 import { RiSearch2Line } from "react-icons/ri";
 import { FaAlignLeft } from "react-icons/fa";
 import { RiLightbulbFlashLine } from "react-icons/ri";
-import User from "./User";
+// import User from "./User";
 import { Link } from "react-router-dom";
 
-function Topbar(toggle) {
+function Topbar({ toggleSideBar, sideBar }) {
   return (
     <>
-      <Container fluid className="p-3 px-0 mx-3 ">
-        <Row>
+      {/* <Container fluid className="p-3 px-3 m-0 "> */}
+      {/* <Row>
           <Col lg={1} xs={2}>
             <FaAlignLeft
               color="#5735d2"
@@ -29,7 +31,7 @@ function Topbar(toggle) {
                 padding: "8px",
                 borderRadius: "5px",
               }}
-              onClick={toggle}
+              onClick={toggleSideBar}
             />
           </Col>
           <Col md={5} xs={7}>
@@ -70,10 +72,51 @@ function Topbar(toggle) {
             />
           </Col>
           <Col md={2} xs={3} sm={2}>
-            <User />
+            <Row>
+              <Col md={1} className="">
+                <VscChevronDown
+                  color="#09090a"
+                  className="p-1 my-2 "
+                  size="25px"
+                  style={{ backgroundColor: "#eceef5", borderRadius: "5px" }}
+                />
+              </Col>
+
+              <Col
+                style={{ lineHeight: "5px" }}
+                className=" d-none d-lg-block px-4"
+              >
+                <h5 style={{ fontSize: "17px" }}>Alan Walker</h5>
+                <small className="text-muted ms-4">Coimbatore</small>
+              </Col>
+              <Col>
+                <img
+                  src="/user.jpg"
+                  alt="ProfilePic"
+                  className="rounded"
+                  style={{ width: "40px", height: "40px" }}
+                />
+              </Col>
+            </Row>
+          </Col>
+        </Row> */}
+      <Navbar color="light" light className=" p-3 mb-5  rounded" expand="md">
+        <Row>
+          <Col>
+            <FaAlignLeft
+              color="#5735d2"
+              size="40px"
+              style={{
+                backgroundColor: "#ffffff",
+                padding: "8px",
+                borderRadius: "5px",
+              }}
+              onClick={toggleSideBar}
+            />
           </Col>
         </Row>
-      </Container>
+      </Navbar>
+      {/* </Container> */}
     </>
   );
 }
