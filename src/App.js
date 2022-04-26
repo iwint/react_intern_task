@@ -15,9 +15,22 @@ function App() {
   return (
     <>
       <Router>
+<<<<<<< HEAD
         <div className="App">
           <Sidebar toggle={toggleSideBar} sideBar={sideBar} />
           <Topbar toggle={toggleSideBar} sideBar={sideBar} />
+=======
+<<<<<<< HEAD
+        <div className="App-wrapper d-flex px-0">
+          <Sidebar toggleSideBar={toggleSideBar} sideBar={sideBar} />
+          <Topbar toggleSideBar={toggleSideBar} sideBar={sideBar} />
+        </div>
+=======
+        <div className="App">
+          <Sidebar toggle={toggleSideBar} sideBar={sideBar} />
+          <Topbar toggle={toggleSideBar} sideBar={sideBar} />
+>>>>>>> 92e8dd54ac197e15d9c7a8e20f2489e2444b9880
+>>>>>>> 383678f4a2d4a04bb721315757929b9712c23518
 
           <Routes>
             <Route exact path="/promocodes" element={<PromocodeForm />} />

@@ -12,12 +12,36 @@ import SubMenu from "./SubMenu";
 import { HiChevronDown, HiChevronUp } from "react-icons/hi";
 import { Link } from "react-router-dom";
 import Data from "./SidebarData";
+<<<<<<< HEAD
 
 function Sidebar({ sideBar }) {
   const [collapse, setCollapse] = useState(false);
 
   const toggleDropdown = () => setCollapse(!collapse);
 
+=======
+
+function Sidebar({ sideBar }) {
+  const [collapse, setCollapse] = useState(false);
+
+  const toggleDropdown = () => setCollapse(!collapse);
+
+<<<<<<< HEAD
+function Sidebar({ sideBar }) {
+  return sideBar ? (
+    <Navbar
+      color="#ffffff"
+      style={{
+        backgroundColor: "#ffffff",
+        width: "250px",
+        height: "100vh",
+      }}
+    >
+      Hello
+    </Navbar>
+  ) : null;
+=======
+>>>>>>> 383678f4a2d4a04bb721315757929b9712c23518
   return (
     <>
       {sideBar && (
@@ -43,6 +67,7 @@ function Sidebar({ sideBar }) {
       )}
     </>
   );
+>>>>>>> 92e8dd54ac197e15d9c7a8e20f2489e2444b9880
 }
 
 export default Sidebar;
