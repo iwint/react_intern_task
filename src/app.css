@@ -1,10 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital@0;1&display=swap");
 body {
   height: 100vh;
   background-color: #f5f8ff;
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans", sans-serif;
 }
-.input:-webkit-autofill,
-.input:-webkit-autofill:hover,
-.input:-webkit-autofill:focus,
-.input:-webkit-autofill:active {
-  box-shadow: 0 0 0 30px white inset !important;
+.App {
+  width: 100%;
+  display: flex;
+  align-items: stretch;
+}
+.sidebar {
+  min-width: 250px;
+  max-width: 250px;
+  transition: all 0.5s;
+  margin-left: -250px;
+}
+.sidebar.is-open {
+  margin-left: 0;
+  transition: 0.5s;
+}
+
+.dropdown-link {
+  color: black;
+  font-size: 14px;
+  margin-top: -12px;
+}
+li {
+  list-style: disc;
+}
+
+.navItem {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin-top: -12px;
+}
+
+.topbar {
+  position: relative;
+  top: 0;
+  left: 20%;
 }
