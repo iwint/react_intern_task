@@ -5,30 +5,12 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Noto Sans", sans-serif;
+  height: 100vh;
 }
 .App {
   width: 100%;
   display: flex;
   align-items: stretch;
-}
-.sidebar {
-  min-width: 250px;
-  max-width: 250px;
-  transition: all 0.5s;
-  margin-left: -250px;
-}
-.sidebar.is-open {
-  margin-left: 0;
-  transition: 0.5s;
-}
-
-.dropdown-link {
-  color: black;
-  font-size: 14px;
-  margin-top: -12px;
-}
-li {
-  list-style: disc;
 }
 
 .navItem {
@@ -43,4 +25,88 @@ li {
   position: relative;
   top: 0;
   left: 20%;
+}
+
+.menu {
+  color: #c1c1c1;
+  font-size: 14px;
+  width: 190px;
+  margin-left: 30px;
+  text-decoration: none;
+}
+.menu-items {
+  list-style: none;
+  display: flex;
+
+  justify-content: space-between;
+}
+.menu-items:hover {
+  color: #5837d2;
+}
+
+.active {
+  background-color: #eeebfb;
+  color: #5837d2;
+  border-radius: 20px;
+  height: 40px;
+}
+.submenu {
+  color: #c1c1c1;
+  font-size: 13px;
+  margin-left: 50px;
+}
+.submenu-items {
+  text-decoration: none;
+  color: #c1c1c1;
+}
+.submenu:hover {
+  color: #5837d2;
+}
+
+.submenu-items:hover {
+  color: #5837d2;
+}
+
+.btn {
+  border-radius: 10px;
+  font-size: 12px;
+  height: 40px;
+}
+
+.submit {
+  background-color: #5837d2;
+  color: #eeebfb;
+  transition: 0.5s;
+}
+.submit:hover {
+  background-color: #ffffff;
+  color: #5837d2;
+}
+
+.reset {
+  border-color: #5837d2;
+  color: #5837d2;
+  transition: 0.5s;
+}
+.reset:hover {
+  background-color: red;
+  color: #ffffff;
+  border: none;
+}
+
+.cancel {
+  background-color: #ffffff;
+  color: #b0b0b1;
+  border-color: #c1c1c1;
+}
+
+.promo-add {
+  background-color: #3fca7e;
+  color: #ffffff;
+  border: none;
+}
+
+.promo-add:hover {
+  color: #3fca7e;
+  background-color: #ffffff;
 }

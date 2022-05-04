@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col, Container, FormGroup, Label, Row } from "reactstrap";
 import * as Yup from "yup";
-import { Form, Formik } from "formik";
+import { ErrorMessage, Form, Formik } from "formik";
 import BootInputComponent from "./Input";
 import styled from "styled-components";
 import Header from "./header";
+import * as FaIcons from "react-icons/fa";
+import * as MdIcons from "react-icons/md";
+import Popup from "./Popup";
 
 const Button = styled.button``;
 
 function PromocodeForm() {
+  const [isOpen, setisOpen] = useState(false);
+  const PopUp = () => {
+    setisOpen((p) => !p);
+  };
   const disType = [
     {
       key: "Percentage",
@@ -44,14 +51,14 @@ function PromocodeForm() {
     description: "",
     promocode: "",
     expirydate: null,
-    discounttype: "Percentage",
-    discountpercentage: "Percentage ",
+    discounttype: "",
+    discountpercentage: "",
     discountmaximum: "",
     maximumredemption: "",
     minimumrights: "",
-    chooseservice: "All",
-    location: "Coimbatore",
-    discountvalue: "",
+    chooseservice: "",
+    location: "",
+    discountvalue: "0",
   };
   const validationSchema = Yup.object({
     title: Yup.string().required("* Required Field"),
@@ -64,200 +71,254 @@ function PromocodeForm() {
     location: Yup.string().required("* Required Field"),
     chooseservice: Yup.string().required("* Required Field"),
     discountvalue: Yup.string().required("* Required Field"),
+    minimumrights: Yup.string().required("* Required Field"),
   });
+
+  const [flat, setflat] = useState(false);
 
   const onSubmit = (values) => {
     console.log("Promo Codes", values);
   };
 
+  const DistTypeChange = (e) => {
+    if (e.target.value === "flat") {
+      setflat(true);
+    } else {
+      setflat(false);
+    }
+  };
   return (
     <Container
-      className="px-5"
-      style={{ backgroundColor: "#ffffff", padding: "30px" }}
+      className="px-5 my-2"
+      style={{
+        backgroundColor: "#ffffff",
+        paddingTop: "30px",
+        paddingBottom: "5px",
+        height: "100vh",
+      }}
     >
       <Header />
+
       <Formik
         initialValues={initialValues}
         validationSchema={validationSchema}
         onSubmit={onSubmit}
       >
-        <Form className="px-2">
-          <Row className="my-2">
-            <Col md>
-              <FormGroup>
-                <Label className="my-2" for={"title"}>
-                  Title
-                </Label>
-                <BootInputComponent
-                  name={"title"}
-                  type={"textarea"}
-                  id={"title"}
-                  style={{ resize: "none" }}
-                />
-              </FormGroup>
-            </Col>
-            <Col md>
-              <FormGroup>
-                <Label className="my-2" for={"description"}>
-                  Description
-                </Label>
-                <BootInputComponent
-                  name={"description"}
-                  type={"textarea"}
-                  id={"description"}
-                  style={{ resize: "none" }}
-                />
-              </FormGroup>
-            </Col>
-          </Row>
-          <Row className="my-2">
-            <Col md>
-              <FormGroup>
-                <Label className="my-2" for={"promocode"}>
-                  Promo Code
-                </Label>
-                <BootInputComponent
-                  name={"promocode"}
-                  type={"text"}
-                  id={"promocode"}
-                />
-              </FormGroup>
-            </Col>
-            <Col md>
-              <FormGroup>
-                <Label className="my-2" for={"expirydate"}>
-                  Expiry Date
-                </Label>
-                <BootInputComponent
-                  name={"expirydate"}
-                  type={"date"}
-                  id={"expirydate"}
-                />
-              </FormGroup>
-            </Col>
-          </Row>
-          <Row className="my-2">
-            <Col md>
-              <FormGroup>
-                <Label className="my-2" for={"discounttype"}>
-                  Discount Type
-                </Label>
-                <BootInputComponent
-                  name={"discounttype"}
-                  type={"select"}
-                  id={"discounttype"}
-                >
-                  {disType.map((type) => (
-                    <option value={type.value} key={type.value}>
-                      {type.key}
-                    </option>
-                  ))}
-                </BootInputComponent>
-              </FormGroup>
-            </Col>
-
-            <Col md>
-              <FormGroup>
-                <Label className="my-2" for={"dicountpercentage"}>
-                  Discount Percentage
-                </Label>
-                <BootInputComponent
-                  name={"discountpercentage"}
-                  id={"discountpercentage"}
-                  type={"text"}
-                ></BootInputComponent>
-              </FormGroup>
-            </Col>
-          </Row>
-          <Row className="my-2">
-            <Col md>
-              <FormGroup>
-                <Label className="my-2" for={"discountmaximum"}>
-                  Discount Maximum
-                </Label>
-                <BootInputComponent
-                  name={"discountmaximum"}
-                  id={"discountmaximum"}
-                  type={"text"}
-                />
-              </FormGroup>
-            </Col>
-
-            <Col md>
-              <FormGroup>
-                <Label className="my-2" for={"maximumredemption"}>
-                  Maximum Redemption per User
-                </Label>
-                <BootInputComponent
-                  name={"maximumredemption"}
-                  id={"maximumredemption"}
-                  type={"text"}
-                />
-              </FormGroup>
-            </Col>
-          </Row>
-          <Row className="my-2">
-            <Col md>
-              <FormGroup>
-                <Label className="my-2" for={"minimumrights"}>
-                  Minimum Rights
-                </Label>
-                <BootInputComponent
-                  name={"minimumrights"}
-                  id={"minimumrights"}
-                  type={"text"}
-                />
-              </FormGroup>
-            </Col>
-
-            <Col md>
-              <FormGroup>
-                <Label className="my-2" for={"chooseservice"}>
-                  Choose Service
-                </Label>
-                <BootInputComponent
-                  name={"chooseservice"}
-                  id={"chooseservice"}
-                  type={"select"}
-                >
-                  {Service.map((service) => (
-                    <option value={service.value} key={service.value}>
-                      {service.key}
-                    </option>
-                  ))}
-                </BootInputComponent>
-              </FormGroup>
-            </Col>
-          </Row>
-          <Row className="my-2">
-            <Col md>
-              <FormGroup>
-                <Label className="my-2" for="">
-                  Location
-                </Label>
-                <Col md={6}>
-                  <BootInputComponent
-                    name={"location"}
-                    id={"location"}
-                    type={"select"}
-                  >
-                    {locationOpt.map((location) => (
-                      <option value={location.value}>{location.key}</option>
-                    ))}
-                  </BootInputComponent>
+        {({ handleChange }) => {
+          return (
+            <Form className="px-2">
+              <Row className="my-2">
+                <Col md>
+                  <FormGroup>
+                    <Label className="my-2" for={"title"}>
+                      Title
+                    </Label>
+                    <BootInputComponent
+                      name={"title"}
+                      type={"textarea"}
+                      id={"title"}
+                      style={{ resize: "none" }}
+                    />
+                  </FormGroup>
                 </Col>
-              </FormGroup>
-            </Col>
-          </Row>
-          <Col className="text-center my-4">
-            <Button className="mx-3" outline>
-              Cancel
-            </Button>
-            <Button className="mx-3" type={"submit"}>
-              Add Promo
-            </Button>
-          </Col>
-        </Form>
+                <Col md>
+                  <FormGroup>
+                    <Label className="my-2" for={"description"}>
+                      Description
+                    </Label>
+                    <BootInputComponent
+                      name={"description"}
+                      type={"textarea"}
+                      id={"description"}
+                      style={{ resize: "none" }}
+                    />
+                  </FormGroup>
+                </Col>
+              </Row>
+              <Row className="my-2">
+                <Col md>
+                  <FormGroup>
+                    <Label className="my-2" for={"promocode"}>
+                      Promo Code
+                    </Label>
+                    <BootInputComponent
+                      name={"promocode"}
+                      type={"text"}
+                      id={"promocode"}
+                    />
+                  </FormGroup>
+                </Col>
+                <Col md>
+                  <FormGroup>
+                    <Label className="my-2" for={"expirydate"}>
+                      Expiry Date
+                    </Label>
+                    <BootInputComponent
+                      name={"expirydate"}
+                      type={"date"}
+                      id={"expirydate"}
+                    />
+                  </FormGroup>
+                </Col>
+              </Row>
+              <Row className="my-2">
+                <Col md>
+                  <FormGroup>
+                    <Label className="my-2" for={"discounttype"}>
+                      Discount Type
+                    </Label>
+                    <BootInputComponent
+                      name={"discounttype"}
+                      type={"select"}
+                      id={"discounttype"}
+                      onChange={(e) => {
+                        handleChange(e);
+                        DistTypeChange(e);
+                      }}
+                    >
+                      {disType.map((type) => (
+                        <option value={type.value} key={type.value}>
+                          {type.key}
+                        </option>
+                      ))}
+                    </BootInputComponent>
+                  </FormGroup>
+                </Col>
+                <Col md>
+                  <FormGroup>
+                    <Label className="my-2" for={"maximumredemption"}>
+                      Maximum Redemption per User
+                    </Label>
+                    <BootInputComponent
+                      name={"maximumredemption"}
+                      id={"maximumredemption"}
+                      type={"text"}
+                    />
+                  </FormGroup>
+                </Col>
+              </Row>
+              {!flat && (
+                <>
+                  {" "}
+                  <Row className="my-2">
+                    <Col md>
+                      <FormGroup>
+                        <Label className="my-2" for={"discountmaximum"}>
+                          Discount Maximum
+                        </Label>
+                        <BootInputComponent
+                          name={"discountmaximum"}
+                          id={"discountmaximum"}
+                          type={"text"}
+                        />
+                      </FormGroup>
+                    </Col>
+                    <Col md>
+                      <FormGroup>
+                        <Label className="my-2" for={"discountpercentage"}>
+                          Discount Percentage
+                        </Label>
+                        <BootInputComponent
+                          name={"discountpercentage"}
+                          id={"discountpercentage"}
+                          type={"text"}
+                        ></BootInputComponent>
+                      </FormGroup>
+                    </Col>
+                  </Row>
+                </>
+              )}
+              <Row className="my-2">
+                {!flat && (
+                  <Col md>
+                    <FormGroup>
+                      <Label className="my-2" for={"minimumrights"}>
+                        Minimum Rights
+                      </Label>
+                      <BootInputComponent
+                        name={"minimumrights"}
+                        id={"minimumrights"}
+                        type={"text"}
+                      />
+                    </FormGroup>
+                  </Col>
+                )}
+                {flat && (
+                  <Col md>
+                    <FormGroup>
+                      <Label className="my-2" for={"discountvalue"}>
+                        Discount Value
+                      </Label>
+                      <BootInputComponent
+                        name={"discountvalue"}
+                        id={"discountvalue"}
+                        type={"text"}
+                      />
+                    </FormGroup>
+                  </Col>
+                )}
+                <Col md>
+                  <FormGroup>
+                    <Label className="my-2" for={"chooseservice"}>
+                      Choose Service
+                    </Label>
+                    <BootInputComponent
+                      name={"chooseservice"}
+                      id={"chooseservice"}
+                      type={"select"}
+                    >
+                      {Service.map((service) => (
+                        <option value={service.value} key={service.value}>
+                          {service.key}
+                        </option>
+                      ))}
+                    </BootInputComponent>
+                  </FormGroup>
+                </Col>
+              </Row>
+              <Row className="my-2">
+                <Col md>
+                  <FormGroup>
+                    <Label className="my-2" for="">
+                      Location
+                    </Label>
+                    <Col md={6}>
+                      <BootInputComponent
+                        name={"location"}
+                        id={"location"}
+                        type={"select"}
+                      >
+                        {locationOpt.map((location) => (
+                          <option value={location.value}>{location.key}</option>
+                        ))}
+                      </BootInputComponent>
+                    </Col>
+                  </FormGroup>
+                </Col>
+              </Row>
+              <Col className="text-center my-4">
+                <Button className="reset btn mx-3" type="reset" outline>
+                  <span className="mx-1">
+                    <MdIcons.MdOutlineCancel />
+                  </span>
+                  Cancel
+                </Button>
+
+                <Button
+                  className="submit btn mx-3"
+                  type={"submit"}
+                  onClick={PopUp}
+                >
+                  <span className="mx-1">
+                    <FaIcons.FaPlusCircle />
+                  </span>
+                  Add Promo
+                </Button>
+                <Popup isOpen={isOpen} setisOpen={setisOpen} />
+              </Col>
+            </Form>
+          );
+        }}
       </Formik>
     </Container>
   );

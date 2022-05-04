@@ -7,46 +7,27 @@ import {
   Input,
   InputGroup,
   InputGroupText,
-<<<<<<< HEAD
   Nav,
   Navbar,
   NavItem,
-=======
-<<<<<<< HEAD
-  Navbar,
-=======
-  Nav,
-  Navbar,
-  NavItem,
->>>>>>> 92e8dd54ac197e15d9c7a8e20f2489e2444b9880
->>>>>>> 383678f4a2d4a04bb721315757929b9712c23518
   Row,
 } from "reactstrap";
 import { BiBell } from "react-icons/bi";
 import { RiSearch2Line } from "react-icons/ri";
 import { FaAlignLeft } from "react-icons/fa";
 import { RiLightbulbFlashLine } from "react-icons/ri";
-<<<<<<< HEAD
-import { Link } from "react-router-dom";
+import { Link, Route, Routes } from "react-router-dom";
 import Sidebar from "../SideBar/Sidebar";
+import OtherPages from "../../pages/OtherPages";
+import PromocodeForm from "../../pages/Form/PromocodeForm";
+
+// import User from "./User";
 
 function Topbar({ toggle, sideBar }) {
   return (
     <>
-=======
-<<<<<<< HEAD
-// import User from "./User";
-=======
->>>>>>> 92e8dd54ac197e15d9c7a8e20f2489e2444b9880
-import { Link } from "react-router-dom";
-import Sidebar from "../SideBar/Sidebar";
-
-<<<<<<< HEAD
-function Topbar({ toggleSideBar, sideBar }) {
-  return (
-    <>
-      {/* <Container fluid className="p-3 px-3 m-0 "> */}
-      {/* <Row>
+      <Container fluid className="p-3 px-3 m-0 ">
+        <Row>
           <Col lg={1} xs={2}>
             <FaAlignLeft
               color="#5735d2"
@@ -56,7 +37,7 @@ function Topbar({ toggleSideBar, sideBar }) {
                 padding: "8px",
                 borderRadius: "5px",
               }}
-              onClick={toggleSideBar}
+              onClick={toggle}
             />
           </Col>
           <Col md={5} xs={7}>
@@ -82,7 +63,7 @@ function Topbar({ toggleSideBar, sideBar }) {
               />
             </InputGroup>
           </Col>
-          <Col md={2} lg={1} className="ms-lg-auto mx-2 d-none d-md-block">
+          <Col md={2} lg={2} className="ms-lg-auto mx-2 d-none d-md-block">
             <RiLightbulbFlashLine
               color="#09090a"
               className="p-1"
@@ -96,9 +77,9 @@ function Topbar({ toggleSideBar, sideBar }) {
               style={{ backgroundColor: "#eceef5", borderRadius: "5px" }}
             />
           </Col>
-          <Col md={2} xs={3} sm={2}>
+          <Col md={3} xs={3} sm={2}>
             <Row>
-              <Col md={1} className="">
+              <Col md={2} className="">
                 <VscChevronDown
                   color="#09090a"
                   className="p-1 my-2 "
@@ -124,50 +105,25 @@ function Topbar({ toggleSideBar, sideBar }) {
               </Col>
             </Row>
           </Col>
-        </Row> */}
-      <Navbar color="light" light className=" p-3 mb-5  rounded" expand="md">
-        <Row>
-          <Col>
-            <FaAlignLeft
-              color="#5735d2"
-              size="40px"
-              style={{
-                backgroundColor: "#ffffff",
-                padding: "8px",
-                borderRadius: "5px",
-              }}
-              onClick={toggleSideBar}
-            />
-          </Col>
         </Row>
-      </Navbar>
-      {/* </Container> */}
-=======
-function Topbar({ toggle, sideBar }) {
-  return (
-    <>
->>>>>>> 383678f4a2d4a04bb721315757929b9712c23518
-      <Navbar
-        expand="md"
-        className="topbar p-3 px-0 mx-3 col-12"
-        style={{
-          height: "100px",
-          width: "100%",
-          position: "relative",
-          left: "0",
-          right: "0",
-        }}
-      >
-        <Nav>
-          <NavItem className="navItem">
-            <FaAlignLeft onClick={toggle} />
-          </NavItem>
-        </Nav>
-      </Navbar>
-<<<<<<< HEAD
-=======
->>>>>>> 92e8dd54ac197e15d9c7a8e20f2489e2444b9880
->>>>>>> 383678f4a2d4a04bb721315757929b9712c23518
+        <Col
+          className="content"
+          md={
+            sideBar
+              ? {
+                  offset: 1,
+                  size: 10,
+                }
+              : 12
+          }
+          sm="12"
+        >
+          <Routes>
+            <Route exact path="/" element={<OtherPages />} />
+            <Route exact path="/promocodes" element={<PromocodeForm />} />
+          </Routes>
+        </Col>
+      </Container>
     </>
   );
 }

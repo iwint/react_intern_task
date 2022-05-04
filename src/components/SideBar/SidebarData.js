@@ -8,7 +8,7 @@ const SideBarData = [
   {
     name: "Dashboard",
     icon: <RiIcons.RiDashboardFill />,
-    path: "/",
+    path: "/promocodes",
   },
   {
     name: "Rides",
