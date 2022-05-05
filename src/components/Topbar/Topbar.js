@@ -7,17 +7,14 @@ import {
   Input,
   InputGroup,
   InputGroupText,
-  Nav,
-  Navbar,
-  NavItem,
   Row,
 } from "reactstrap";
 import { BiBell } from "react-icons/bi";
 import { RiSearch2Line } from "react-icons/ri";
 import { FaAlignLeft } from "react-icons/fa";
 import { RiLightbulbFlashLine } from "react-icons/ri";
-import { Link, Route, Routes } from "react-router-dom";
-import Sidebar from "../SideBar/Sidebar";
+import { Route, Routes } from "react-router-dom";
+
 import OtherPages from "../../pages/OtherPages";
 import PromocodeForm from "../../pages/Form/PromocodeForm";
 
@@ -77,7 +74,7 @@ function Topbar({ toggle, sideBar }) {
               style={{ backgroundColor: "#eceef5", borderRadius: "5px" }}
             />
           </Col>
-          <Col md={3} xs={3} sm={2}>
+          <Col lg={3} md={2} xs={3} sm={3}>
             <Row>
               <Col md={2} className="">
                 <VscChevronDown

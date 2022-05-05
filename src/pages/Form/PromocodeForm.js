@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Col, Container, FormGroup, Label, Row } from "reactstrap";
 import * as Yup from "yup";
-import { ErrorMessage, Form, Formik } from "formik";
+import { Form, Formik } from "formik";
 import BootInputComponent from "./Input";
 import styled from "styled-components";
 import Header from "./header";
@@ -104,7 +104,7 @@ function PromocodeForm() {
         validationSchema={validationSchema}
         onSubmit={onSubmit}
       >
-        {({ handleChange }) => {
+        {({ handleChange, isValid, values }) => {
           return (
             <Form className="px-2">
               <Row className="my-2">
@@ -112,6 +112,9 @@ function PromocodeForm() {
                   <FormGroup>
                     <Label className="my-2" for={"title"}>
                       Title
+                      <span className="mx-1" style={{ color: "#dd394b" }}>
+                        *
+                      </span>
                     </Label>
                     <BootInputComponent
                       name={"title"}
@@ -139,7 +142,10 @@ function PromocodeForm() {
                 <Col md>
                   <FormGroup>
                     <Label className="my-2" for={"promocode"}>
-                      Promo Code
+                      Promo Code{" "}
+                      <span className="mx-1" style={{ color: "#dd394b" }}>
+                        *
+                      </span>
                     </Label>
                     <BootInputComponent
                       name={"promocode"}
@@ -151,7 +157,10 @@ function PromocodeForm() {
                 <Col md>
                   <FormGroup>
                     <Label className="my-2" for={"expirydate"}>
-                      Expiry Date
+                      Expiry Date{" "}
+                      <span className="mx-1" style={{ color: "#dd394b" }}>
+                        *
+                      </span>
                     </Label>
                     <BootInputComponent
                       name={"expirydate"}
@@ -166,6 +175,9 @@ function PromocodeForm() {
                   <FormGroup>
                     <Label className="my-2" for={"discounttype"}>
                       Discount Type
+                      <span className="mx-1" style={{ color: "#dd394b" }}>
+                        *
+                      </span>
                     </Label>
                     <BootInputComponent
                       name={"discounttype"}
@@ -187,7 +199,10 @@ function PromocodeForm() {
                 <Col md>
                   <FormGroup>
                     <Label className="my-2" for={"maximumredemption"}>
-                      Maximum Redemption per User
+                      Maximum Redemption per User{" "}
+                      <span className="mx-1" style={{ color: "#dd394b" }}>
+                        *
+                      </span>
                     </Label>
                     <BootInputComponent
                       name={"maximumredemption"}
@@ -204,7 +219,10 @@ function PromocodeForm() {
                     <Col md>
                       <FormGroup>
                         <Label className="my-2" for={"discountmaximum"}>
-                          Discount Maximum
+                          Discount Maximum{" "}
+                          <span className="mx-1" style={{ color: "#dd394b" }}>
+                            *
+                          </span>
                         </Label>
                         <BootInputComponent
                           name={"discountmaximum"}
@@ -216,7 +234,10 @@ function PromocodeForm() {
                     <Col md>
                       <FormGroup>
                         <Label className="my-2" for={"discountpercentage"}>
-                          Discount Percentage
+                          Discount Percentage{" "}
+                          <span className="mx-1" style={{ color: "#dd394b" }}>
+                            *
+                          </span>
                         </Label>
                         <BootInputComponent
                           name={"discountpercentage"}
@@ -233,7 +254,10 @@ function PromocodeForm() {
                   <Col md>
                     <FormGroup>
                       <Label className="my-2" for={"minimumrights"}>
-                        Minimum Rights
+                        Minimum Rights{" "}
+                        <span className="mx-1" style={{ color: "#dd394b" }}>
+                          *
+                        </span>
                       </Label>
                       <BootInputComponent
                         name={"minimumrights"}
@@ -247,7 +271,10 @@ function PromocodeForm() {
                   <Col md>
                     <FormGroup>
                       <Label className="my-2" for={"discountvalue"}>
-                        Discount Value
+                        Discount Value{" "}
+                        <span className="mx-1" style={{ color: "#dd394b" }}>
+                          *
+                        </span>
                       </Label>
                       <BootInputComponent
                         name={"discountvalue"}
@@ -260,7 +287,10 @@ function PromocodeForm() {
                 <Col md>
                   <FormGroup>
                     <Label className="my-2" for={"chooseservice"}>
-                      Choose Service
+                      Choose Service{" "}
+                      <span className="mx-1" style={{ color: "#dd394b" }}>
+                        *
+                      </span>
                     </Label>
                     <BootInputComponent
                       name={"chooseservice"}
@@ -280,7 +310,10 @@ function PromocodeForm() {
                 <Col md>
                   <FormGroup>
                     <Label className="my-2" for="">
-                      Location
+                      Location{" "}
+                      <span className="mx-1" style={{ color: "#dd394b" }}>
+                        *
+                      </span>
                     </Label>
                     <Col md={6}>
                       <BootInputComponent
@@ -307,7 +340,7 @@ function PromocodeForm() {
                 <Button
                   className="submit btn mx-3"
                   type={"submit"}
-                  onClick={PopUp}
+                  onClick={!isValid && PopUp}
                 >
                   <span className="mx-1">
                     <FaIcons.FaPlusCircle />
