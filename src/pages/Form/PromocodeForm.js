@@ -89,12 +89,12 @@ function PromocodeForm() {
   };
   return (
     <Container
-      className="px-5 my-2"
+      className="px-5 my-4"
       style={{
         backgroundColor: "#ffffff",
         paddingTop: "30px",
         paddingBottom: "5px",
-        height: "100vh",
+        height: "auto",
       }}
     >
       <Header />

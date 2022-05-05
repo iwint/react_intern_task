@@ -8,7 +8,7 @@ const SideBarData = [
   {
     name: "Dashboard",
     icon: <RiIcons.RiDashboardFill />,
-    path: "/promocodes",
+    path: "/",
   },
   {
     name: "Rides",
@@ -17,7 +17,7 @@ const SideBarData = [
     submenu: [
       {
         name: "None",
-        path: "/",
+        path: "/otherpages",
       },
     ],
   },
@@ -28,7 +28,7 @@ const SideBarData = [
     submenu: [
       {
         name: "None",
-        path: "/",
+        path: "/otherpages",
       },
     ],
   },
@@ -39,7 +39,7 @@ const SideBarData = [
     submenu: [
       {
         name: "None",
-        path: "/",
+        path: "/otherpages",
       },
     ],
   },
@@ -55,15 +55,15 @@ const SideBarData = [
     submenu: [
       {
         name: "Promocodes",
-        path: "/promocodes",
+        path: "/",
       },
       {
         name: "Referral",
-        path: "/",
+        path: "/otherpages",
       },
       {
         name: "Banners",
-        path: "/",
+        path: "/otherpages",
       },
     ],
   },
@@ -74,7 +74,7 @@ const SideBarData = [
     submenu: [
       {
         name: "None",
-        path: "/",
+        path: "/otherpages",
       },
     ],
   },
@@ -85,19 +85,19 @@ const SideBarData = [
     submenu: [
       {
         name: "None",
-        path: "/",
+        path: "/otherpages",
       },
     ],
   },
   {
     name: "Feedbacks",
     icon: <RiIcons.RiQuestionnaireFill />,
-    path: "/",
+    path: "/otherpages",
   },
   {
     name: "Chat Support",
     icon: <RiIcons.RiQuestionnaireFill />,
-    path: "/",
+    path: "/otherpages",
   },
   {
     name: "Logout",

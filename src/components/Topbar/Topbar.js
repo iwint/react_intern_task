@@ -116,8 +116,8 @@ function Topbar({ toggle, sideBar }) {
           sm="12"
         >
           <Routes>
-            <Route exact path="/" element={<OtherPages />} />
-            <Route exact path="/promocodes" element={<PromocodeForm />} />
+            <Route exact path="/otherpages" element={<OtherPages />} />
+            <Route exact path="/" element={<PromocodeForm />} />
           </Routes>
         </Col>
       </Container>
