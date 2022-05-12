@@ -110,3 +110,31 @@ body {
   color: #3fca7e;
   background-color: #ffffff;
 }
+.Header {
+  background-color: #f8f7fa;
+}
+.header-title {
+  font-size: 18px;
+  padding: 15px;
+  text-align: center;
+  color: #694bd6;
+  font-weight: 500;
+}
+.form-container {
+  background-color: #ffffff;
+  padding-top: 30px;
+  padding-bottom: 5px;
+  height: auto;
+}
+
+.form-check-input {
+  font-size: 20px;
+}
+
+.form-switch {
+  display: flex;
+  flex-direction: row;
+
+  justify-content: space-between;
+  padding-top: 45px;
+}

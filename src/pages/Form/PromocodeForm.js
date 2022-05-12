@@ -88,15 +88,7 @@ function PromocodeForm() {
     }
   };
   return (
-    <Container
-      className="px-5 my-4"
-      style={{
-        backgroundColor: "#ffffff",
-        paddingTop: "30px",
-        paddingBottom: "5px",
-        height: "auto",
-      }}
-    >
+    <Container className="form-container px-5 my-4">
       <Header />
 
       <Formik
@@ -104,7 +96,7 @@ function PromocodeForm() {
         validationSchema={validationSchema}
         onSubmit={onSubmit}
       >
-        {({ handleChange, isValid, values }) => {
+        {({ handleChange, isValid }) => {
           return (
             <Form className="px-2">
               <Row className="my-2">
@@ -214,7 +206,6 @@ function PromocodeForm() {
               </Row>
               {!flat && (
                 <>
-                  {" "}
                   <Row className="my-2">
                     <Col md>
                       <FormGroup>
@@ -234,7 +225,7 @@ function PromocodeForm() {
                     <Col md>
                       <FormGroup>
                         <Label className="my-2" for={"discountpercentage"}>
-                          Discount Percentage{" "}
+                          Discount Percentage
                           <span className="mx-1" style={{ color: "#dd394b" }}>
                             *
                           </span>
@@ -254,7 +245,7 @@ function PromocodeForm() {
                   <Col md>
                     <FormGroup>
                       <Label className="my-2" for={"minimumrights"}>
-                        Minimum Rights{" "}
+                        Minimum Rights
                         <span className="mx-1" style={{ color: "#dd394b" }}>
                           *
                         </span>
@@ -271,7 +262,7 @@ function PromocodeForm() {
                   <Col md>
                     <FormGroup>
                       <Label className="my-2" for={"discountvalue"}>
-                        Discount Value{" "}
+                        Discount Value
                         <span className="mx-1" style={{ color: "#dd394b" }}>
                           *
                         </span>
@@ -287,7 +278,7 @@ function PromocodeForm() {
                 <Col md>
                   <FormGroup>
                     <Label className="my-2" for={"chooseservice"}>
-                      Choose Service{" "}
+                      Choose Service
                       <span className="mx-1" style={{ color: "#dd394b" }}>
                         *
                       </span>

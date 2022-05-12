@@ -17,6 +17,7 @@ import { Route, Routes } from "react-router-dom";
 
 import OtherPages from "../../pages/OtherPages";
 import PromocodeForm from "../../pages/Form/PromocodeForm";
+import DriverOverview from "../../pages/Overview/DriverOverview";
 
 // import User from "./User";
 
@@ -118,6 +119,7 @@ function Topbar({ toggle, sideBar }) {
           <Routes>
             <Route exact path="/otherpages" element={<OtherPages />} />
             <Route exact path="/" element={<PromocodeForm />} />
+            <Route exact path="/overview" element={<DriverOverview />} />
           </Routes>
         </Col>
       </Container>

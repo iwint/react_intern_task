@@ -38,8 +38,8 @@ const SideBarData = [
 
     submenu: [
       {
-        name: "None",
-        path: "/otherpages",
+        name: "Overview",
+        path: "/overview",
       },
     ],
   },
