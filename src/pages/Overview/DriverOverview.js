@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import Stepper from "react-stepper-horizontal/lib/Stepper";
+import { Stepper } from "react-form-stepper";
+
 import { Col, Container } from "reactstrap";
 import DriverForm from "./Step1";
 
@@ -14,12 +15,11 @@ function DriverOverview() {
       <Col>
         <Stepper
           steps={[
-            { title: "Step One" },
-            { title: "Step Two" },
-            { title: "Step Three" },
+            { label: "Details" },
+            { label: "Estimation" },
+            { label: "Confirmation" },
           ]}
           activeStep={ActiveStep}
-          activeColor={"#694bd6"}
         />
       </Col>
       {ActiveStep === 0 && (
@@ -27,8 +27,8 @@ function DriverOverview() {
           <DriverForm setActiveStep={setActiveStep} ActiveStep={ActiveStep} />
         </Col>
       )}
-
-      {ActiveStep === 1 && <div>Hello</div>}
+      <Col>{ActiveStep === 1 && <div>Hello</div>}</Col>
+      <Col>{ActiveStep === 2 && <div>Done</div>}</Col>
     </Container>
   );
 }

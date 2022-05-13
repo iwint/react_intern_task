@@ -242,7 +242,11 @@ function Step1({ ActiveStep, setActiveStep }) {
                   Cancel
                 </Button>
 
-                <Button className="submit btn mx-3" type={"submit"}>
+                <Button
+                  className="submit btn mx-3"
+                  type={"submit"}
+                  onClick={!isValid ? () => setActiveStep(1) : null}
+                >
                   <span className="mx-1">
                     <FaIcons.FaCheckCircle />
                   </span>
