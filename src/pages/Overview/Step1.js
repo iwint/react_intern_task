@@ -25,7 +25,7 @@ function Step1({ ActiveStep, setActiveStep }) {
   };
 
   const validationSchema = Yup.object({
-    customerMobile: Yup.number().required(""),
+    customerMobile: Yup.number().required("* Required Field"),
     customerName: Yup.string().required("* Required Field"),
     pickupLocation: Yup.string().required("* Required Field"),
     dropLocation: Yup.string().required(" * Required Field"),
@@ -245,7 +245,7 @@ function Step1({ ActiveStep, setActiveStep }) {
                 <Button
                   className="submit btn mx-3"
                   type={"submit"}
-                  onClick={!isValid ? () => setActiveStep(1) : null}
+                  onClick={isValid ? () => setActiveStep(1) : null}
                 >
                   <span className="mx-1">
                     <FaIcons.FaCheckCircle />
@@ -253,8 +253,6 @@ function Step1({ ActiveStep, setActiveStep }) {
                   Check Price
                 </Button>
               </Col>
-
-              <Step2 />
             </Form>
           );
         }}

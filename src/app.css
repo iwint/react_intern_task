@@ -138,3 +138,18 @@ body {
   justify-content: space-between;
   padding-top: 45px;
 }
+.trip-details {
+  font-size: 12px;
+  padding-top: 5px;
+}
+.title {
+  color: #5837d2;
+}
+.infoContainer {
+  padding: 10px;
+}
+
+.driver-popup {
+  width: 350px;
+  float: right;
+}
