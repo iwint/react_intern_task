@@ -15,6 +15,7 @@ function Sidebar({ sideBar }) {
             backgroundColor: "#ffffff",
             width: "250px",
             height: "100vh",
+            overflow: "-moz-hidden-unscrollable",
           }}
         >
           <NavbarBrand

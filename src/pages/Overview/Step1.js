@@ -1,14 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Formik, Form } from "formik";
 import BootInputComponent from "../Form/Input";
 import { Col, FormGroup, Label, Row, Button } from "reactstrap";
 import { AC, carTypeData } from "./DropdownData";
 import * as Yup from "yup";
-import Step2 from "./Step2";
 import * as FaIcons from "react-icons/fa";
 import * as MdIcons from "react-icons/md";
 
-function Step1({ ActiveStep, setActiveStep }) {
+function Step1({ setActiveStep }) {
   const [On, setOn] = useState(false);
 
   const initialValues = {
@@ -38,7 +37,6 @@ function Step1({ ActiveStep, setActiveStep }) {
 
   const onSubmit = (values) => {
     console.log("Data", values);
-    localStorage.setItem("Data", JSON.stringify(values));
   };
 
   const Switch = (e) => {
@@ -48,6 +46,11 @@ function Step1({ ActiveStep, setActiveStep }) {
       setOn(true);
     }
   };
+  const [items, setitems] = useState([{}]);
+
+  useEffect(() => {
+    localStorage.setItem("Data", JSON.stringify(items));
+  }, [items]);
 
   return (
     <div>
@@ -244,8 +247,8 @@ function Step1({ ActiveStep, setActiveStep }) {
 
                 <Button
                   className="submit btn mx-3"
-                  type={"submit"}
-                  onClick={isValid ? () => setActiveStep(1) : null}
+                  type="submit"
+                  onClick={!isValid ? () => setActiveStep(1) : null}
                 >
                   <span className="mx-1">
                     <FaIcons.FaCheckCircle />

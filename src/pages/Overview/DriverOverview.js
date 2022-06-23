@@ -1,18 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { Stepper } from "react-form-stepper";
+import React, { useState } from "react";
+import Stepper from "react-stepper-horizontal";
 
 import { Col, Container } from "reactstrap";
+import { primaryColor } from "../../components/config/Color";
 import DriverForm from "./Step1";
 import Step2 from "./Step2";
 
 function DriverOverview() {
-  const [ActiveStep, setActiveStep] = useState(1);
-  const handleReset = () => {
-    setActiveStep(0);
-  };
-  useEffect(() => {
-    handleReset();
-  }, []);
+  const [ActiveStep, setActiveStep] = useState(0);
 
   return (
     <Container className="form-container px-5 my-4">
@@ -27,6 +22,9 @@ function DriverOverview() {
             { label: "Confirmation" },
           ]}
           activeStep={ActiveStep}
+          activeColor={primaryColor}
+          completeColor={primaryColor}
+          completeBarColor={primaryColor}
         />
       </Col>
       {ActiveStep === 0 && (

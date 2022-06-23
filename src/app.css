@@ -1,11 +1,12 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital@0;1&display=swap");
 body {
-  height: 100vh;
+  min-height: 100vh;
   background-color: #f5f8ff;
   margin: 0;
   padding: 0;
   font-family: "Noto Sans", sans-serif;
-  height: 100vh;
+  max-height: fit-content;
+  overflow: hidden;
 }
 .App {
   width: 100%;
@@ -124,7 +125,8 @@ body {
   background-color: #ffffff;
   padding-top: 30px;
   padding-bottom: 5px;
-  height: auto;
+  height: 700px;
+  overflow: auto;
 }
 
 .form-check-input {

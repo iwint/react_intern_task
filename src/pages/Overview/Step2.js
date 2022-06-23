@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Col, Container, Row } from "reactstrap";
-import Popup from "../Form/Popup";
+
 import Driverdetails from "./Driverdetails";
 import { CarData } from "./Step2Data";
 
@@ -12,10 +12,10 @@ function Step2() {
   };
   return (
     <Container>
-      <Col className="Header">
+      <Col className="Header ">
         <h1 className="header-title">Trip Details</h1>
       </Col>
-      <Col className="infoContainer">
+      <Col className="infoContainer ">
         <Row className="trip-details">
           <Col className="title col-3">Pick-Up Location</Col>
           <Col className="detail ">{dataStore.pickupLocation}</Col>
@@ -110,10 +110,9 @@ function Step2() {
         <h1 className="header-title">Price Estimation</h1>
       </Col>
       <Row>
-        {" "}
         {CarData.map((item, index) => {
           return (
-            <Col lg={6}>
+            <Col lg={6} className="p-3">
               <Col className="d-flex flex-column justify-content-center align-items-center">
                 <img
                   src={item.image}
@@ -175,7 +174,7 @@ function Step2() {
                 </Row>
               </Col>
 
-              <Col>
+              <Col className="text-center mt-3">
                 <Button className="submit">Book Now</Button>
               </Col>
             </Col>
